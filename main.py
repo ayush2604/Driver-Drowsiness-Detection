@@ -3,7 +3,8 @@ import numpy as np
 import dlib 
 from imutils import face_utils
 from scipy.spatial import distance as dist
-cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('video2.mp4')
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 sleep = 0
@@ -49,7 +50,7 @@ while True:
             drowsy = 0
             active = 0
             if (sleep>8):
-                status = "Sleeping"
+                status = "Drowsy/Sleeping"
                 color = (255,0,0)
         elif left_blink==1 or right_blink==1 or yawn > 35:
             sleep = 0
